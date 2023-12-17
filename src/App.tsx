@@ -5,60 +5,69 @@ import { VelmaMode, useModeContext } from './VelmaCompound'
 function App() {
     const {
         perscription,
+        isActive,
         setPerscription,
         setIsActive
     } = useModeContext();
 
+    if (!setPerscription || !setIsActive) {
+        return (
+
+            <div className="App">
+                <VelmaMode>
+                    <p>
+                        Text you can't see
+                    </p>
+                </VelmaMode>
+            </div>
+        )
+    }
+
     return (
-		<>
-            <button onClick={() => { console.log(setPerscription) }}>BUTOON TO PRINT</button>
-            {!setPerscription ? null :
-                (
-                    <>
-                        <HorizFlex>
-                            <p>Perscription</p>
-                            <hr/>
-                            <p>{perscription}</p>
-                        </HorizFlex>
-                        <VertFlex>
-                                <button
-                                    onClick={() => { setPerscription(perscription + 1) }}
-                                >Increase</button>
-                                <button
-                                    onClick={() => { setPerscription(perscription - 1) }}
-                                >Decrease</button>
-                        </VertFlex>
-                    </>
-                )
-			}
+        <main className="App">
+            <VertFlex givenClassNames="fill_dimensions-row">
+            <HorizFlex givenClassNames="horiz_flex-space_around">
+                <>
+                    <HorizFlex>
+                        <p>Perscription: {perscription}</p>
+                        <></>
+                    </HorizFlex>
+                    <HorizFlex>
+                        <button
+                            onClick={() => { setPerscription(perscription + 1) }}
+                        >Increase</button>
+                        <button
+                            onClick={() => { setPerscription(perscription - 1) }}
+                        >Decrease</button>
+                    </HorizFlex>
+                </>
 
 
-                        {!setIsActive ? null :
-                            (
-                                <>
-                                    <p>Enable VelmaMode</p>
-                                    <VertFlex>
-                                        <button
-                                            onClick={() => { setIsActive(true) }}
-                                        >Enable</button>
-                                        <button
-                                            onClick={() => { setIsActive(false) }}
-                                        >Disable</button>
-                                    </VertFlex>
-                                </>
-                            )
-                        }
+                <>
+                    <p>VelmaMode: {isActive ? "Enabled" : "Disabled"}</p>
+                    <HorizFlex>
+                        <button
+                            onClick={() => { setIsActive(true) }}
+                        >Enable</button>
+                        <button
+                            onClick={() => { setIsActive(false) }}
+                        >Disable</button>
+                    </HorizFlex>
+                </>
+            </HorizFlex>
 
-                        <div className="App">
-                            <VelmaMode>
-                                <p>
-                                    Text you can't see
-                                </p>
-                            </VelmaMode>
-                        </div>
-                    </>
+            <HorizFlex givenClassNames='horiz_flex-space_around'>
+                    <></>
+            <VelmaMode>
+                <p>
+                    Text you can't see
+                </p>
+            </VelmaMode>
+            </HorizFlex>
+            </VertFlex>
+        </main>
 
-                )
-            }
+    )
+}
 
-            export default App
+export default App

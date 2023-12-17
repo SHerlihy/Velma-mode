@@ -1,8 +1,10 @@
 import { ReactElement } from "react"
 
-export const VertFlex = ({children}: {children: ReactElement}) => {
+export const VertFlex = ({children, givenClassNames}: {children: ReactElement[], givenClassNames?: string}) => {
+    const allClassNames = `vertflex ${givenClassNames}`
+
     return (
-    <div className="vertflex">
+    <div className={allClassNames}>
             {children}
     </div>
     )

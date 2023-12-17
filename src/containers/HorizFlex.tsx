@@ -1,8 +1,10 @@
 import { ReactElement } from "react"
 
-export const HorizFlex = ({children}: {children: ReactElement}) => {
+export const HorizFlex = ({children, givenClassNames}: {children: ReactElement[], givenClassNames?: string}) => {
+    const allClassNames = `horizflex ${givenClassNames}`
+
     return (
-    <div className="horizflex">
+    <div className={allClassNames}>
             {children}
     </div>
     )

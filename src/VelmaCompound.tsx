@@ -44,7 +44,7 @@ const HighlightableText = ({ children, onMouseEnter, onSelect }: { children: Rea
         <button 
             onMouseEnter={onMouseEnter} 
             onClick={onSelect} 
-            className="noButton highlightableText"
+            className="no_button"
         >
             {children}
         </button>
