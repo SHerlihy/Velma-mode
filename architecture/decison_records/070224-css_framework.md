@@ -1,0 +1,4 @@
+- css-modules for local styling
+- sass for global styling
+- when local classes are constantly copy pasted switch them over to global
+- or when there is a need for uniformity (single source of truth) throughout the codebase for a class

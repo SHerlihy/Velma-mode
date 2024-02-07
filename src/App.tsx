@@ -1,6 +1,6 @@
 import { HorizFlex } from './containers/HorizFlex';
 import { VertFlex } from './containers/VertFlex';
-import { VelmaMode, useModeContext } from './VelmaCompound'
+import { VelmaMode, useModeContext } from './velmaWrapper/VelmaCompound'
 
 function App() {
     const {
@@ -25,8 +25,8 @@ function App() {
 
     return (
         <main className="App">
-            <VertFlex givenClassNames="fill_dimensions-row">
-            <HorizFlex givenClassNames="horiz_flex-space_around">
+            <VertFlex classes="fill_dimensions-row">
+            <HorizFlex classes="horiz_flex-space_around">
                 <>
                     <HorizFlex>
                         <p>Perscription: {perscription}</p>
@@ -56,14 +56,23 @@ function App() {
                 </>
             </HorizFlex>
 
-            <HorizFlex givenClassNames='horiz_flex-space_around'>
-                    <></>
-            <VelmaMode>
-                <p>
-                    Text you can't see
-                </p>
-            </VelmaMode>
+            <HorizFlex classes='horiz_flex-space_around'>
             </HorizFlex>
+                <VelmaMode>
+                    <p>
+                        Text you can't see
+                    </p>
+                </VelmaMode>
+                <VelmaMode>
+                    <p>
+                        Text you can't see 2 
+                    </p>
+                </VelmaMode>
+                <VelmaMode>
+                    <p>
+                        Text you can't see 3
+                    </p>
+                </VelmaMode>
             </VertFlex>
         </main>
 
