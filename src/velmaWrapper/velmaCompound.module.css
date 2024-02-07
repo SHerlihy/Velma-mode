@@ -3,6 +3,10 @@
     width: fit-content;
 }
 
+.invisiholder {
+    visibility: hidden;
+}
+
 .modeButtons {
     flex-direction: row-reverse;
 }

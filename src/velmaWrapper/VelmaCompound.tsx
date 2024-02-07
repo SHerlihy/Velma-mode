@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactElement, useEffect } from "react";
 import { HorizFlex } from "../containers/HorizFlex";
-import {container, modeButtons} from "./velmaCompound.module.css"
+import {container, invisiholder, modeButtons} from "./velmaCompound.module.css"
 
 interface IProvider {
     children: ReactElement;
@@ -106,15 +106,22 @@ export const VelmaMode = ({ children, classes }: IVelmaModeProps) => {
     }, [isActive])
 
     const propClasses = `${container} ${classes}`
+    const dummyClasses = `${invisiholder} ${container} ${classes}`
 
     return (
         <div className={propClasses}>
             {isActive &&
-            <HorizFlex classes={modeButtons}>
-                <button onClick={toggleActive}>I/O</button>
-                <button onClick={minusMod}>-</button>
-                <button onClick={plusMod}>+</button>
-            </HorizFlex>
+                <HorizFlex classes={modeButtons}>
+                    <button onClick={toggleActive}>I/O</button>
+                    <button onClick={minusMod}>-</button>
+                    <button onClick={plusMod}>+</button>
+                </HorizFlex>
+            }
+            {!isActive &&
+                <HorizFlex classes={dummyClasses}>
+                    <button>X</button>
+                    <button>X</button>
+                </HorizFlex>
             }
             {!localActive ?
                 children :
